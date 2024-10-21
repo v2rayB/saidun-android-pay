@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>赛盾VPN</title>
+	</head>
+	<body>
+		<h3>正在跳转支付中...</h3>
+		<script>
+			function GetQueryValue(queryName) {
+				var reg = new RegExp("(^|&)" + queryName + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if ( r != null ){
+				   return decodeURI(r[2]);
+				}else{
+				   return null;
+				}
+			}
+			window.onload = function () {
+				var token = GetQueryValue("s")
+				if (token != null && token != '') {
+					localStorage.setItem("saidun-token",token)
+					window.location.href = "index.html"
+				}else {
+					alert("当前登录信息失效,请从APP内重新登录打开")
+				}
+			}
+		</script>
+	</body>
+</html>
