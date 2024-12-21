@@ -441,6 +441,9 @@
 					},
 				},
 				created: function() {
+					if (this.token == null || this.token == '') {
+						this.token = GetQueryValue("s")
+					}
 					serverIp = "https://ga-bp1uq54lfuzt7jnt7spja.aliyunga0019.com"
 					this.init()
 				}
