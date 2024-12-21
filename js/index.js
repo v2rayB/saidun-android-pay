@@ -4,6 +4,16 @@ function gotoPrivate() {
 	window.location.href = "private.html"
 }
 
+function GetQueryValue(queryName) {
+	var reg = new RegExp("(^|&)" + queryName + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if ( r != null ){
+	   return decodeURI(r[2]);
+	}else{
+	   return null;
+	}
+}
+
 function gotoAndroid() {
 	if (isWx()) {
 		window.location.href = "pages/open-wx.html?page="+window.location.href
